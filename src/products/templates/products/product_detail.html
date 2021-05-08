@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form>
+  <div class="form-group">
+    <label for="titleFormControlInput">Title</label>
+    <input type="title" readonly class="form-control" id="titleFormControlInput" value="{{object.title}}">
+  </div>
+ 
+  <div class="form-group">
+    <label for="priceFormControl">Price</label>Title</label>
+    <input type="title" readonly class="form-control" id="priceFormControl" value="{{object.price}}">
+  </div>
+
+  <div class="form-group">
+    <label for="SummaryFormControl">Summary</label</Title</label>
+    <input type="title" readonly class="form-control" id="SummaryFormControl" value="{{object.summary}}">
+  </div>
+
+  <div class="form-group">
+    <label for="SummaryFormControl">Featured</label</Title</label>
+    <input type="checkbox" readonly class="form-control" id="SummaryFormControl" {% if object.featured %} checked {% endif %}>
+  </div>
+</form>
+
+
+<a href="/product">Go back</a>
+{% endblock %}

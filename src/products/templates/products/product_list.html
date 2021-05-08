@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script type='text/javascript'>
+  $( document ).ready(function() {
+     
+  $("#summaryTable").on("click", "tr td", function (row, $el, field) {
+    console.log("here works!");
+    var col = $(this).index();
+    console.log(field)
+    });
+  });
+
+     
+</script>
+<h1>Products <a href="/create"><i class="far fa-plus-square" ></i></a></h1>
+
+
+
+
+<div class="table-responsive">
+  <table id="summaryTable" class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Featured</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for o in object %}
+        <tr>
+          <th scope="row"><a href="/productDetail/{{forloop.counter}}">{{ forloop.counter }}</a></th>
+          <td>{{o.title}}</td>
+          <td>{{o.description}}</td>
+          <td>{{o.price}}</td>
+          <td><input type="checkbox" readonly class="form-control" id="SummaryFormControl" {% if o.featured %} checked {% endif %}></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
